@@ -1,6 +1,6 @@
 # sup
 
-System Utilities Packager
+sup(System Utilities Packager) is a package manager that is for system utilities software.
 
 # Dependencies
 
