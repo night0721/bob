@@ -11,7 +11,7 @@ You may use your own Github repository for supplying the binaries, or other plat
 All these customizations can be done in `bob.h`
 
 # Usage
-```sh
+```
 Usage:
  (install|i|add) <package>	    Install a package
  (uninstall|d|del) <package>	Uninstall a package
