@@ -3,19 +3,20 @@
 
 CC = cc
 VERSION = 1.0
-TARGET = sup
+TARGET = bob
 MANPAGE = $(TARGET).1
 PREFIX ?= /usr/local
 BINDIR = $(PREFIX)/bin
 MANDIR = $(PREFIX)/share/man/man1
 
 # Flags
-CFLAGS = -O3 -march=native -mtune=native -pipe -s -std=c99 -pedantic -Wall -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600
+LDFLAGS = $(shell pkg-config --libs libcurl)
+CFLAGS = -O3 -march=native -mtune=native -pipe -g -std=c99 -pedantic -Wall -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600
 
-SRC = sup.c
+SRC = bob.c
 
 $(TARGET): $(SRC)
-	$(CC) $(SRC) -o $@ $(CFLAGS)
+	$(CC) $(SRC) -o $@ $(CFLAGS) $(LDFLAGS)
 
 dist:
 	mkdir -p $(TARGET)-$(VERSION)
