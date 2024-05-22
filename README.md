@@ -17,8 +17,7 @@ It is recommended to have `XDG_DATA_HOME` defined to store the database for bob,
 
 # Building
 You will need to run these with elevated privilages.
-
-```sh
+```
 $ make 
 # make install
 ```
