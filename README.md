@@ -22,7 +22,6 @@ Usage:
 
 # Dependencies
 
-- gcc
 - curl
 
 # Building

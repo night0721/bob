@@ -11,7 +11,7 @@ MANDIR = $(PREFIX)/share/man/man1
 
 # Flags
 LDFLAGS = $(shell pkg-config --libs libcurl)
-CFLAGS = -O3 -march=native -mtune=native -pipe -g -std=c99 -pedantic -Wall -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600
+CFLAGS = -O3 -march=native -mtune=native -pipe -s -std=c99 -pedantic -Wall -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600
 
 SRC = bob.c
 
