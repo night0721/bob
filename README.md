@@ -5,6 +5,7 @@ It is recommended to have `XDG_DATA_HOME` defined to store the database for bob,
 
 # Usage
 ```
+bob
  (install|i|add) <package>	    Install a package
  (uninstall|d|del) <package>	Uninstall a package
  (update|u) <package>		    Update a package
