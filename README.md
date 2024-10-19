@@ -1,5 +1,5 @@
 # bob
-bob is a **B**inary **O**nly package manager that is for managing my publicly published softwares. Sample repository can be found on [here](https://github.com/night0721/bob-packages), only works on musl-libc system.
+bob is a **B**inary **O**nly package manager that is for managing my publicly published softwares. Sample repository can be found on [here](https://bob.night0721.xyz), only works on musl-libc system.
 
 It is recommended to have `XDG_DATA_HOME` defined to store the database for bob, otherwise database file would be created at `~/.cache`
 
