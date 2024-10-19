@@ -7,14 +7,10 @@
 #define MAX_PKG_NAME_LENGTH 128
 #define MAX_PKGS 128
 
-/* Must be github repo */
-#define REPO "night0721/bob-packages"
-#define BRANCH "main"
+/* URL to download binaries from */
+/* For Github, use https://raw.githubusercontent.com/username/repo/branch */
+#define URL "https://bob.night0721.xyz"
 
 #define DEST_DIR "/usr/local/bin/"
-
-#define RED "\033[0;31m"
-#define GRN "\033[0;32m"
-#define CRESET "\033[0m"
 
 #endif

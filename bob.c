@@ -14,7 +14,7 @@ void debug(const char *fmt, ...)
 {
     va_list args;
     va_start(args, fmt);
-    fprintf(stderr, GRN "[bob] " CRESET);
+    fprintf(stderr, "\033[0;32m[bob]\033[0m ");
     vfprintf(stderr, fmt, args);
     va_end(args);
 }
@@ -23,7 +23,7 @@ void error(const char *msg, ...)
 {
     va_list args;
     va_start(args, msg);
-    fprintf(stderr, RED "[bob] " CRESET);
+    fprintf(stderr, "\033[0;31m[bob]\033[0m ");
     vfprintf(stderr, msg, args);
     va_end(args);
 }
@@ -39,23 +39,17 @@ size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream)
 
 char *get_db_path()
 {
-    char *db_dir = getenv("XDG_DATA_HOME");
-    char *db_path = malloc(PATH_MAX * sizeof(char));
+    char *db_path = malloc(12);
     if (db_path == NULL) {
         error("Error allocating memory\n");
         exit(EXIT_FAILURE);
     }
 
-    /* make db idr at .cache/bob if XDG_DATA_HOME isn't defined */
-    if (db_dir) {
-        snprintf(db_path, PATH_MAX, "%s/bob", db_dir);
-    } else {
-        snprintf(db_path, PATH_MAX, "%s/.cache/bob", getenv("HOME"));
-    }
+    snprintf(db_path, 9, "/lib/bob");
 
     /* create the directory if it doesn't exist */
     mkdir(db_path, 0755);
-    strcat(db_path, "/bob.db");
+    strcat(db_path, "/db");
 
     return db_path;
 }
@@ -147,7 +141,7 @@ int download_file(char *pkg)
             return 1;
         }
         
-        snprintf(url, sizeof(url), "https://raw.githubusercontent.com/%s/%s/%s", REPO, BRANCH, pkg);
+        snprintf(url, sizeof(url), "%s/%s", URL, pkg);
 
         curl_easy_setopt(curl, CURLOPT_URL, url);
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
@@ -242,7 +236,7 @@ char **search_index()
 
 	char url[256];
 
-    snprintf(url, sizeof(url), "https://raw.githubusercontent.com/%s/%s/index", REPO, BRANCH);
+    snprintf(url, sizeof(url), "%s/index", URL);
 
     CURL *curl = curl_easy_init();
     if (curl) {
