@@ -9,7 +9,7 @@ BINDIR = $(PREFIX)/bin
 MANDIR = $(PREFIX)/share/man/man1
 
 LDFLAGS != pkg-config --libs libcurl
-CFLAGS = -O3 -march=native -mtune=native -pipe -s -std=c99 -pedantic -Wall
+CFLAGS = -Os -march=native -mtune=native -pipe -s -std=c99 -pedantic -Wall -D_DEFAULT_SOURCE
 
 SRC = bob.c
 

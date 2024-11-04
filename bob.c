@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/stat.h>
 #include <unistd.h>
-#include <limits.h>
 #include <errno.h>
+#include <sys/stat.h>
+#include <linux/limits.h>
 
 #include <curl/curl.h>
 
@@ -37,7 +37,7 @@ size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream)
     return written;
 }
 
-char *get_db_path()
+char *get_db_path(void)
 {
     char *db_path = malloc(12);
     if (db_path == NULL) {
@@ -229,7 +229,7 @@ void update_package(char *pkg)
 	}
 }
 
-char **search_index()
+char **search_index(void)
 {
     long response_code;
     char temp_path[] = "/tmp/bob_index";
